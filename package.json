@@ -1,0 +1,28 @@
+{
+  "name": "full-koa-rest-api-jwt",
+  "version": "1.0.0",
+  "description": "Building REST API with NodeJS, Koa framwork, JWT(Json Web Token), MySQL, Bcrypt",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon -e js server.js"
+  },
+  "repository": "git+https://github.com/nuSapb/full-koa-rest-api-jwt.git",
+  "author": "Anu S.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nuSapb/full-koa-rest-api-jwt/issues"
+  },
+  "homepage": "https://github.com/nuSapb/full-koa-rest-api-jwt#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.4",
+    "jsonwebtoken": "^8.4.0",
+    "koa": "^2.7.0",
+    "koa-body": "^4.0.8",
+    "koa-bodyparser": "^4.2.1",
+    "koa-morgan": "^1.0.1",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
+    "mysql2": "^1.6.5"
+  }
+}
