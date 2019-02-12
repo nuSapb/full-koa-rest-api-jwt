@@ -4,13 +4,16 @@ const Router = require('koa-router')
 const router = new Router()
 const jwt = require('jsonwebtoken')
 const logger = require('koa-morgan')
-const koaBody = require('koa-body')
+const koaBody = require('koa-bodyparser');
 
 app.use(logger('dev'))
 app.use(koaBody())
 
 router.get('/', async (ctx, next) => {
-    ctx.body = {"redirect": "from auth passed"}
+    ctx.body = {
+        "redirect": "from auth passed"
+    }
+    await next()
 })
 
 // const stripPrefix = async (ctx, next) => {
