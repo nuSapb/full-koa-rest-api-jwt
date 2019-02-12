@@ -10,11 +10,18 @@ app.use(logger('dev'))
 app.use(koaBody())
 
 router.get('/', async (ctx, next) => {
-    ctx.body = {"example": "Build REST API with Koa"}
+    ctx.body = {"redirect": "from auth passed"}
 })
 
-
-
+// const stripPrefix = async (ctx, next) => {
+//     if (!ctx.path.startsWith("/-")) {
+//       ctx.status = 404
+//       return
+//     }
+// }
+  
+app.use(require('./routes'))
+// app.use(stripPrefix)
 app.use(router.routes())
 app.listen(5000, () => {
     console.log('server start on port 5000')

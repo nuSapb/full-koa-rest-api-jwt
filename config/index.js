@@ -1,9 +1,8 @@
 const Router = require('koa-router')
-const signIn = require('./signin')
 
 const router = new Router()
 
+router.use(require('./db')) 
 
-router.post('/signin', signIn.postHandler)
 
 module.exports = router.routes()

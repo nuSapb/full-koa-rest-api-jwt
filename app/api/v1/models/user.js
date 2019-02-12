@@ -1,16 +1,12 @@
-const pool = require('../../../../config/db')
+const pool = require('../../../../config/db/')
 
-const register = async (username, password, fullname) => {
-
-}
 
 const findUserByUsername = async (username) => {
     const [results] = await pool.query(
         `
 			select usr_id_pk as id,usr_fullname as fullname,usr_password as password,usr_username as username,
 			usr_email as email,usr_tel as phone,date(create_date) as register_date,
-			rol_name as role
-			from mas_user inner join ref_role on rol_id_pk = usr_rol_id_fk
+			from master_user
 			where usr_username = ?`,
         username
     )
@@ -19,10 +15,10 @@ const findUserByUsername = async (username) => {
     return results
 }
 
-const checkHasUser = async (username) => {
+const verifyUser = async (username) => {
 	const [rows] = await pool.query(`
-	SELECT usr_id_pk, password
-	FROM mas_user
+	SELECT usr_username as username, usr_password as password
+	FROM master_user
 	WHERE USR_USERNAME = ?
 	`,
     [username]
@@ -32,5 +28,5 @@ const checkHasUser = async (username) => {
 
 module.exports = {
     findUserByUsername,
-    checkHasUser
+    verifyUser
 }
