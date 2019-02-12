@@ -4,6 +4,9 @@ const jwt = require('jsonwebtoken')
 let authToken = {}
 
 
+// TODO: Verify Token
+
+
 const postHandler = async (ctx, next) => {
     console.log('postHandler')
     const results = await user.verifyUser(ctx.request.body.username)
